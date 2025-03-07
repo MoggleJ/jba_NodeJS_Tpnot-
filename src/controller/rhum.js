@@ -1,10 +1,10 @@
 const rhumService = require('../service/compte.js');
 const debugR = require('debug')('rhum');
 
-
-const getRhumsInfos = async (req, res) => {
+// Récupérer tous les rhums
+const getRhumsList = async (req, res) => {
     try {
-        const rhums = await rhumService.getRhumsInfos();
+        const rhums = await rhumService.getRhumsList();
         const page = parseInt(req.query.page) || 1;  // Par défaut, page 1
         const limit = 10;
 
@@ -39,6 +39,33 @@ const getRhumsInfos = async (req, res) => {
     }
 };
 
+// Rechercher un rhum par nom, type ou pays
+const searchRhums = async (req, res) => {
+    const filter = req.query.filter;
+    const info = req.query.info;
+
+    console.log('Received filter:', filter);  // Log du filter
+    console.log('Received info:', info);      // Log de info
+
+    if (!filter || !info) {
+        return res.status(400).send('Filter and info parameters are required');
+    }
+
+    try {
+        const rhums = await rhumService.searchRhums(filter, info);
+        console.log('Rhums found:', rhums);  // Log des Pokémons trouvés
+
+        if (rhums.length > 0) {
+            res.json(rhums);
+        } else {
+            res.status(404).send('No Rhum found');
+        }
+    } catch (err) {
+        console.error('Error searching Rhums:', err);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
 module.exports = {
-    getRhumsInfos
+    getRhumsList,
 };

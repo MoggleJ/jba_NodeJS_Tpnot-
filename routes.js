@@ -1,17 +1,21 @@
 
-const CtrlR = require("./src/controller/rhum");
-const CtrlC = require("./src/controller/compte");
+const CtrlRhum = require("./src/controller/rhum");
+const CtrlUser = require("./src/controller/user");
+const CtrlIngredient = require("./src/controller/ingredient");
+const CtrlRecipe = require("./src/controller/recipe");
+
+
 
 const  routing=(app) => {
-    app.get('/api/v1/rhum',CtrlR.getRhumList);
-   /* app.get('/api/v1/rhum/register',Ctrl.searchRhum);
-    app.get('/api/v1/rhum/login',Ctrl.searchRhum);
-    app.get('/api/v1/rhum/addingredient',Ctrl.searchRhum);
-    app.get('/api/v1/rhum/listingredients',Ctrl.searchRhum);
-    app.get('/api/v1/rhum/search',Ctrl.searchRhum);
-    app.get('/api/v1/rhum/recipe',Ctrl.searchRhum);
-    app.get('/api/v1/rhum/listrecipes',Ctrl.searchRhum);
-    app.get('/api/v1/rhum/listpublicrecipes',Ctrl.searchRhum);
-    app.get('/api/v1/rhum/modifyrecipe',Ctrl.searchRhum);*/
+    app.get('/api/v1/rhum',CtrlRhum.getRhumList);
+    app.get('/api/v1/rhum/register',CtrlUser.register);
+    app.get('/api/v1/rhum/login',CtrlUser.logIn);
+    app.get('/api/v1/rhum/addingredient',CtrlIngredient.searchRhum);
+    app.get('/api/v1/rhum/listingredients',CtrlIngredient.searchRhum);
+    app.get('/api/v1/rhum/search',CtrlRhum.searchRhum);
+    app.get('/api/v1/rhum/recipe',CtrlRecipe.searchRhum);
+    app.get('/api/v1/rhum/listrecipes',CtrlRecipe.searchRhum);
+    app.get('/api/v1/rhum/listpublicrecipes',CtrlRecipe.searchRhum);
+    app.get('/api/v1/rhum/modifyrecipe',CtrlRecipe.searchRhum);*/
 }
 module.exports=routing;

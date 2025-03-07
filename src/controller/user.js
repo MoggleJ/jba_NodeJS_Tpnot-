@@ -6,6 +6,12 @@ const register = async (req, res) => {
 
 };
 
+// Log in
+const logIn = async (req, res) => {
+
+};
+
 module.exports = {
-    getRhumsInfos
+    register,
+    logIn
 };

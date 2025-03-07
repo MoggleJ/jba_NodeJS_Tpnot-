@@ -1,0 +1,30 @@
+{
+  "name": "jba_nodejs_tpnot-",
+  "version": "1.0.0",
+  "description": "TP note BARBIER Jade",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MoggleJ/jba_NodeJS_Tpnot-.git"
+  },
+  "keywords": [
+    "Rhum"
+  ],
+  "author": "MoggleJ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MoggleJ/jba_NodeJS_Tpnot-/issues"
+  },
+  "homepage": "https://github.com/MoggleJ/jba_NodeJS_Tpnot-#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express.js": "^1.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.12.1",
+    "mongose": "^0.0.2-security",
+    "winston": "^3.17.0"
+  }
+}
